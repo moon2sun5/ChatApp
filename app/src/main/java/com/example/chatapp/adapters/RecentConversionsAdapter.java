@@ -14,11 +14,11 @@ import com.example.chatapp.models.ChatMessage;
 
 import java.util.List;
 
-public class RecentConversionAdapter extends RecyclerView.Adapter<RecentConversionAdapter.ConversionViewHolder> {
+public class RecentConversionsAdapter extends RecyclerView.Adapter<RecentConversionsAdapter.ConversionViewHolder> {
 
     private final List<ChatMessage> chatMessages;
 
-    public RecentConversionAdapter(List<ChatMessage> chatMessages) {
+    public RecentConversionsAdapter(List<ChatMessage> chatMessages) {
         this.chatMessages = chatMessages;
     }
 
