@@ -98,6 +98,10 @@ public class SignUpActivity extends AppCompatActivity {
                 );
     }
 
+    private boolean isEmailExist(String email) {
+        return false;
+    }
+
 
     private String encodeImage(Bitmap bitmap) {
         int previewWidth = 150;
@@ -128,24 +132,34 @@ public class SignUpActivity extends AppCompatActivity {
     );
 
     private Boolean isValidSignUpDetails() {
+        String email = binding.inputEmail.getText().toString();
+        String name = binding.inputName.getText().toString();
+        String password = binding.inputPassword.getText().toString();
+        String confirmPassword = binding.inputConfirmPassword.getText().toString();
+
         if (encodedImage == null) {
             showToast("Select profile image");
             return false;
-        } else if (binding.inputName.getText().toString().trim().isEmpty()) { showToast("Enter name");
+        } else if (name.trim().isEmpty()) {
+            showToast("Enter name");
             return false;
-        } else if (binding.inputEmail.getText().toString().trim().isEmpty()) {
+        } else if (email.trim().isEmpty()) {
             showToast("Enter email");
             return false;
-        } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches()) {
-            showToast("Enter valid image");
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() ) {
+            showToast("Enter valid email");
             return false;
-        } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
+        }   else if (isEmailExist(email)){
+            showToast("Email already exist");
+            return false;
+        } else if (password.trim().isEmpty()) {
             showToast("Enter password");
             return false;
-        } else if (binding.inputConfirmPassword.getText().toString().trim().isEmpty()) {
+        } else if (confirmPassword.trim().isEmpty()) {
             showToast("Confirm your password");
             return false;
-        } else if (!binding.inputPassword.getText().toString().equals(binding.inputConfirmPassword.getText().toString())) { showToast("Password & confirm password must be same");
+        } else if (!password.equals(confirmPassword)) {
+            showToast("Password & confirm password must be same");
             return false;
         } else {
             return true;
