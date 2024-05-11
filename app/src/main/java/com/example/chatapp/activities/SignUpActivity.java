@@ -138,19 +138,19 @@ public class SignUpActivity extends AppCompatActivity {
         String confirmPassword = binding.inputConfirmPassword.getText().toString();
 
         if (encodedImage == null) {
-            showToast("Select profile image");
+            showToast("Chọn ảnh đại diện");
             return false;
         } else if (name.trim().isEmpty()) {
-            showToast("Enter name");
+            showToast("Nhập tên");
             return false;
         } else if (email.trim().isEmpty()) {
-            showToast("Enter email");
+            showToast("Nhập email");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches() ) {
             showToast("Enter valid email");
             return false;
         }   else if (isEmailExist(email)){
-            showToast("Email already exist");
+            showToast("Email đã ton tại");
             return false;
         } else if (password.trim().isEmpty()) {
             showToast("Enter password");
@@ -169,10 +169,8 @@ public class SignUpActivity extends AppCompatActivity {
     private  void loading(Boolean isLoading) {
         if (isLoading) {
             binding.buttonSignUp.setVisibility(View.INVISIBLE);
-            binding.progressBar.setVisibility(View.VISIBLE);
             } else {
             binding.buttonSignUp.setVisibility(View.VISIBLE);
-            binding.progressBar.setVisibility(View.INVISIBLE);
         }
     }
 }

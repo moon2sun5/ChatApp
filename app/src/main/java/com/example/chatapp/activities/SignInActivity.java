@@ -76,7 +76,7 @@ public class SignInActivity extends AppCompatActivity {
                         startActivity(intent);
                     } else {
                         loading(false);
-                        showToast("Unable to sign in");
+                        showToast("Không thể đăng nhập");
                     }
                 });
 
@@ -85,10 +85,8 @@ public class SignInActivity extends AppCompatActivity {
     private void loading(Boolean isLoading) {
         if(isLoading) {
             binding.buttonSignIn.setVisibility(View.INVISIBLE);
-            binding.progressBar.setVisibility(View.VISIBLE);
         } else {
             binding.buttonSignIn.setVisibility(View.VISIBLE);
-            binding.progressBar.setVisibility(View.INVISIBLE);
         }
     }
 
@@ -99,12 +97,12 @@ public class SignInActivity extends AppCompatActivity {
     private Boolean isValidSignInDetails() {
 
         if (binding.inputEmail.getText().toString().trim().isEmpty()) {
-            showToast("Enter email");
+            showToast("Nhập email");
             return false;
         } else if (!Patterns.EMAIL_ADDRESS.matcher(binding.inputEmail.getText().toString()).matches()) { showToast("Enter valid email");
             return false;
         } else if (binding.inputPassword.getText().toString().trim().isEmpty()) {
-            showToast("Enter password");
+            showToast("Nhập password");
             return false;
         } else {
             return true;

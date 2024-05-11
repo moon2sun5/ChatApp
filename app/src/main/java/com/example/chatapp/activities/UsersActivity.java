@@ -23,7 +23,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersActivity extends AppCompatActivity implements UsersListener {
+public class UsersActivity extends BaseActivity implements UsersListener {
 
     private ActivityUsersBinding binding;
     private PreferenceManager preferenceManager;

@@ -59,4 +59,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
 
     implementation 'androidx.multidex:multidex:2.0.1'
+
+    implementation 'com.squareup.retrofit2:retrofit:(insert latest version)'
+    implementation group: 'com.squareup.retrofit2', name: 'converter-scalars', version: '2.11.0'
 }
